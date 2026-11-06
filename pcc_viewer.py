@@ -23,10 +23,10 @@ import numpy as np
 
 # --- Bootstrap path for importing PCC-Explorer's data_io ---
 # The ANTEX reader is taken from ./src, or from a PCC-Explorer checkout placed
-# next to this folder as ImpactOfDeltaPCC/.
+# next to this folder as PCC-Explorer/.
 _viewer_dir = os.path.dirname(os.path.abspath(__file__))
 _hiwi_dir = os.path.dirname(_viewer_dir)
-_pcc_explorer_dir = os.path.join(_hiwi_dir, 'ImpactOfDeltaPCC')
+_pcc_explorer_dir = os.path.join(_hiwi_dir, 'PCC-Explorer')
 
 # For PyInstaller exe: also check inside _MEIPASS and exe directory
 try:
@@ -50,7 +50,7 @@ try:
     print("[PCC-Viewer] Using PCC-Explorer's ANTEX parser")
 except ImportError:
     print("[PCC-Viewer] WARNING: Could not import PCC-Explorer's data_io.")
-    print("             Make sure ImpactOfDeltaPCC/ is a sibling folder.")
+    print("             Make sure PCC-Explorer/ is a sibling folder.")
     read_antex_file = None
 
 # Resolve default ANTEX data directory (works for dev + exe)
@@ -59,7 +59,7 @@ def _find_antex_dir():
     candidates = [
         os.path.join(_exe_dir, 'data', 'antex'),       # dist/PCC-Viewer/data/antex/
         os.path.join(_viewer_dir, 'data', 'antex'),     # dev: PCC-Viewer/data/antex/
-        os.path.join(_pcc_explorer_dir, 'data', 'antex'),  # sibling: ImpactOfDeltaPCC/data/antex/
+        os.path.join(_pcc_explorer_dir, 'data', 'antex'),  # sibling: PCC-Explorer/data/antex/
     ]
     for c in candidates:
         if os.path.isdir(c):
@@ -652,7 +652,7 @@ class PCCViewerApp(ttk.Window):
         if read_antex_file is None:
             messagebox.showerror("Import Error",
                                  "Cannot find PCC-Explorer's ANTEX parser.\n"
-                                 "Make sure ImpactOfDeltaPCC/ is a sibling folder.")
+                                 "Make sure PCC-Explorer/ is a sibling folder.")
             return
 
         try:

@@ -10,5 +10,5 @@ RELEASE_DATE is an ISO date: the date the package is built.
 """
 
 PROGRAM_NAME = "PCC-Viewer"
-VERSION = "1.1"
-RELEASE_DATE = "2026-09-08"
+VERSION = "1.1.1"
+RELEASE_DATE = "2026-11-01"

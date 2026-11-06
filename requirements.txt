@@ -1,7 +1,4 @@
 numpy
 matplotlib
-scipy
-pillow
 ttkbootstrap
 requests
-astropy
